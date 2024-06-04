@@ -1,7 +1,3 @@
-//item 4 -> nao mostra todos os medicos com a mesma data
-//item 5 e 6 poderia ter usado o item 3 para a pesaquisa do nome
-
-
 #include "stdio.h"
 #include "locale.h"
 
@@ -24,8 +20,8 @@ main()
     do
     {
         printf("\n\n************MENU************");
-        printf("\n\n1 - Entrada de dados. \n2 - Lista todos os dados na tela. \n3 – Pesquisa um médico pelo nome completo e mostra todo os dados na tela. \n4 – Pesquisa pela data de consulta e mostra todos na tela. \n5 – Altera dados. Pesquisa pelo nome completo do médico. \n6 – Exclui dados. Pesquisa pelo nome completo do médico. \n7 - Saída");
-        printf("\nOpção: ");
+        printf("\n\n1 - Entrada de dados. \n2 - Lista todos os dados na tela. \n3 â€“ Pesquisa um mÃ©dico pelo nome completo e mostra todo os dados na tela. \n4 â€“ Pesquisa pela data de consulta e mostra todos na tela. \n5 â€“ Altera dados. Pesquisa pelo nome completo do mÃ©dico. \n6 â€“ Exclui dados. Pesquisa pelo nome completo do mÃ©dico. \n7 - SaÃ­da");
+        printf("\nOpÃ§Ã£o: ");
         scanf("%d", &menu);
         getchar();
 
@@ -40,7 +36,7 @@ main()
             break;
 
         case 3:
-            printf("\n************PESQUISA MÉDICO************");
+            printf("\n************PESQUISA MÃ‰DICO************");
             pesquisa_medicos();
             break;
 
@@ -60,7 +56,7 @@ main()
             sair();
 
         default:
-            printf("\nOpção inválida");
+            printf("\nOpÃ§Ã£o invÃ¡lida");
         }
 
     }
@@ -78,7 +74,7 @@ int entrada_dados()
 
     for(cont=0; cont<3; cont++)
     {
-        printf("\nNome médico %d: ", cont+1);
+        printf("\nNome mÃ©dico %d: ", cont+1);
         gets(medico[cont]);
         printf("\nData da consulta: ");
         gets(data_consulta[cont]);
@@ -107,7 +103,7 @@ int lista_dados()
     {
         if(medico[cont][0]!='*')
         {
-            printf("\nMédico %d: %s\nData da consulta: %s", cont+1, medico[cont], data_consulta[cont]);
+            printf("\nMÃ©dico %d: %s\nData da consulta: %s", cont+1, medico[cont], data_consulta[cont]);
         }
     }
 
@@ -125,7 +121,7 @@ int pesquisa_medicos()
     fread(medico, sizeof(medico), 1, file);
     fread(data_consulta, sizeof(data_consulta), 1, file);
 
-    printf("\nInforme o nome do médico: ");
+    printf("\nInforme o nome do mÃ©dico: ");
     gets(nome);
 
     for(cont=0; cont<3; cont++)
@@ -142,7 +138,7 @@ int pesquisa_medicos()
 
         if(medico[cont][cont2]== '\0' &&  nome[cont2] =='\0')
         {
-            printf("\nMédico %d: %s\nData da consulta: %s", cont+1, medico[cont], data_consulta[cont]);
+            printf("\nMÃ©dico %d: %s\nData da consulta: %s", cont+1, medico[cont], data_consulta[cont]);
             tentativa++;
             break;
         }
@@ -150,7 +146,7 @@ int pesquisa_medicos()
 
     if(tentativa==0)
     {
-        printf("\nNome não encontrado.");
+        printf("\nNome nÃ£o encontrado.");
     }
 
     fclose(file);
@@ -188,7 +184,7 @@ int pesquisa_data()
 
         if(data_consulta[cont][cont2]== '\0' &&  data[cont2] =='\0')
         {
-            printf("\nMédico %d: %s\nData da consulta: %s", cont+1, medico[cont], data_consulta[cont]);
+            printf("\nMÃ©dico %d: %s\nData da consulta: %s", cont+1, medico[cont], data_consulta[cont]);
             tentativa++;
 
         }
@@ -196,7 +192,7 @@ int pesquisa_data()
 
     if(tentativa==0)
     {
-        printf("\nData não encontrada.");
+        printf("\nData nÃ£o encontrada.");
     }
 
     fclose(file);
@@ -221,7 +217,7 @@ int alterar_dados()
 
     file = fopen("desafio.txt", "w");
 
-    printf("\nNome médico: ");
+    printf("\nNome mÃ©dico: ");
     gets(medico[escolha]);
     printf("\nData da consulta: ");
     gets(data_consulta[escolha]);
